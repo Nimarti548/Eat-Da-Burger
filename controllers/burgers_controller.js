@@ -2,7 +2,7 @@ const router = require("express").Router();
 const burger = require("../models/burger");
 
 router.get('/', (req, res) => {
-    burger.all((data) => {
+    burger.selectAll((data) => {
       const hbsObject = {
         burgers: data,
       };
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   });
   
   router.post('/api/burgers', (req, res) => {
-    burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], (result) => {
+    burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], (result) => {
       
       res.json({ id: result.insertId });
     });
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
   
     console.log('condition', condition);
   
-    burger.update(
+    burger.updateOne(
       {
         devoured: req.body.devoured,
       },
@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
   router.delete('/api/burgers/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
   
-    burger.delete(condition, (result) => {
+    burger.deleteOne(condition, (result) => {
       if (result.affectedRows === 0) {
         return res.status(404).end();
       }
