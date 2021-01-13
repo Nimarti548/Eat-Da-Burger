@@ -1,14 +1,16 @@
-<div class="row text-center">
-    <h1>BURGER EATER</h1>
+<div class="container">
+    <div class="row text-center">
+        <h1>BURGER EATER</h1>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-6">
         <h2>Ready-to-eat burgers!</h2>
-        <ul id="burger-list">
+        <ul id="ready-to-eat">
             {{#each burgers}}
             {{#unless this.devoured}}
-            <div class="burgers-toEat">
+            <div class="ready-to-eat">
                 <form class="update card-body col-6">
                     {{this.id}}. {{this.burger_name}}
                     <button type="submit" data-id="{{this.id}}" class="devour-btn">DEVOUR</button>
@@ -19,9 +21,9 @@
         </ul>
     </div>
 
-    <div class="devoured-section col-sm-12 col-md-6 col-lg-6">
+    <div class="col-sm-12 col-md-6 col-lg-6">
         <h2>Devoured Burgers!</h2>
-        <ul id="devoured-list">
+        <ul id="devoured-burgers">
             {{#each burgers}}
             {{#if this.devoured}}
             <div class="devoured-burgers">
@@ -37,8 +39,8 @@
     <form class="create-form">
         <div class="form-group">
             <input class="col-md-3 col-sm-12 center" type="text" id="burger-input" name="name"
-                placeholder="Enter a burger to eat!">
+                placeholder="Enter a Burger to Eat!">
         </div>
-        <button class="addBtn" type="submit">Submit</button>
+        <button class="addBtn" type="submit">Submit</button> 
     </form>
 </div>

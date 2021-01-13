@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
           body: JSON.stringify(eatenBurger),
         }).then((response) => {
           if (response.ok) {
-            console.log(`changed devoured to: ${devoured}`);
             location.reload("/");
           } else {
             alert("something went wrong!");
@@ -55,7 +54,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         body: JSON.stringify(newBurger),
       }).then(() => {
         document.getElementById("burger-input").value = "";
-        console.log("Added a new burger!");
         location.reload();
       });
     });

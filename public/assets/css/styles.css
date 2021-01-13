@@ -1,0 +1,16 @@
+body {
+  margin-left: 10px;
+  background-color: rgb(162, 108, 212);
+}
+
+h1 {
+  color: ghostwhite;
+}
+
+h2 {
+    color: ghostwhite;
+}
+
+.devour-btn {
+    float: right;
+}
